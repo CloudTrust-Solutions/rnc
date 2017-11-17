@@ -1,2 +1,2 @@
-# Remote Network Connection logo
+# Remote Network Connection logo SVG
 
