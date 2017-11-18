@@ -1,0 +1,117 @@
+$strokeColor: #00B0F0;
+$logoColor: #00B0F0;
+$totalAnim: 10s;
+$delay: 1s;
+$circleLen: 1000;
+
+.rnc_circle {
+    stroke: $strokeColor;
+    stroke-dasharray: $circleLen, $circleLen;
+    stroke-dashoffset: $circleLen;
+    animation: rnc_circle_anim $totalAnim $delay infinite;
+    animation-fill-mode: forwards; // Stay on the last frame
+    animation-iteration-count: 1;
+  }
+
+.rnc_circle_fill {
+    stroke: $strokeColor;
+    stroke-dasharray: $circleLen, $circleLen;
+    stroke-dashoffset: $circleLen;
+    animation: rnc_circle_anim_fill $totalAnim $delay infinite;
+    animation-fill-mode: forwards; // Stay on the last frame
+    animation-iteration-count: 1;
+  }
+
+.rnc_area_fill {
+    stroke: $strokeColor;
+    stroke-dasharray: $circleLen, $circleLen;
+    stroke-dashoffset: $circleLen;
+    animation: rnc_area_anim_fill $totalAnim $delay infinite;
+    animation-fill-mode: forwards; // Stay on the last frame
+    animation-iteration-count: 1;
+  }
+
+@keyframes rnc_circle_anim {
+  42% {
+    stroke-dashoffset: $circleLen;
+    fill: transparent;
+  }
+  61% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  71% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  73% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    fill: transparent;
+  }
+  85% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes rnc_circle_anim_fill {
+  12% {
+    stroke-dashoffset: $circleLen;
+    fill: transparent;
+  }
+  31% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  41% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  43% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    fill: transparent;
+  }
+  85% {
+    stroke-dashoffset: 0;
+    fill: $logoColor;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: $logoColor;
+  }
+}
+
+@keyframes rnc_area_anim_fill {
+  42% {
+    stroke-dashoffset: $circleLen;
+    fill: transparent;
+  }
+  61% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  71% {
+    stroke-dashoffset: 0;
+    fill: transparent;
+  }
+  73% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    fill: transparent;
+  }
+  85% {
+    stroke-dashoffset: 0;
+    fill: $logoColor;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill: $logoColor;
+  }
+}
+
