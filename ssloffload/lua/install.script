@@ -21,7 +21,7 @@ tar zxf haproxy-1.7.9.tar.gz
 cd haproxy-1.7.9
 
 make TARGET=linux2628 USE_OPENSSL=1 USE_PCRE=1 USE_LUA=1 LUA_LIB=/opt/lua5.3.4/lib/ LUA_INC=/opt/lua5.3.4/include/
-
+sudo make PREFIX=/opt/haproxy-1.7.9 install
 
 
 
