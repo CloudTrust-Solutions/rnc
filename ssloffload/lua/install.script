@@ -23,5 +23,19 @@ cd haproxy-1.7.9
 make TARGET=linux2628 USE_OPENSSL=1 USE_PCRE=1 USE_LUA=1 LUA_LIB=/opt/lua5.3.4/lib/ LUA_INC=/opt/lua5.3.4/include/
 sudo make PREFIX=/opt/haproxy-1.7.9 install
 
+# usage
+
+haproxy -v
+haproxy -vv
+
+service haproxy start
+service haproxy stop
+service haproxy restart
+
+sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+
+systemctl status haproxy.service
+
+systemctl cat haproxy
 
 
