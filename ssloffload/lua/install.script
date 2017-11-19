@@ -40,4 +40,6 @@ systemctl status haproxy.service
 
 systemctl cat haproxy
 
+# http://
 
+sudo apt-get install lua-curl
