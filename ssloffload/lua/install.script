@@ -1,0 +1,27 @@
+# http://www.lua.org/home.html
+
+sudo apt-get install make
+sudo apt-get install gcc
+sudo apt-get install libreadline-dev 
+
+curl -R -O http://www.lua.org/ftp/lua-5.3.4.tar.gz
+tar zxf lua-5.3.4.tar.gz
+cd lua-5.3.4
+
+make linux test
+sudo make INSTALL_TOP=/opt/lua5.3.4 install
+
+# http://haproxy.org
+
+sudo apt-get install libpcre3-dev
+sudo apt-get install libssl-dev
+
+curl -R -O http://www.haproxy.org/download/1.7/src/haproxy-1.7.9.tar.gz
+tar zxf haproxy-1.7.9.tar.gz
+cd haproxy-1.7.9
+
+make TARGET=linux2628 USE_OPENSSL=1 USE_PCRE=1 USE_LUA=1 LUA_LIB=/opt/lua5.3.4/lib/ LUA_INC=/opt/lua5.3.4/include/
+
+
+
+
