@@ -28,3 +28,7 @@ function get_certificate(txn)
 
         return "rnc_server_https"
 end
+
+core.register_fetches("get_certificate", get_certificate)
+
+
