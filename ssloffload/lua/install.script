@@ -32,6 +32,8 @@ service haproxy start
 service haproxy stop
 service haproxy restart
 
+sudo haproxy -f /etc/haproxy/haproxy.cfg -d
+
 sudo haproxy -c -f /etc/haproxy/haproxy.cfg
 
 systemctl status haproxy.service
