@@ -1,3 +1,6 @@
+
+	[...]
+
 function get_certificate(txn)
         core.log(core.info, "Remote Network Connection Frontend")
         local arg1 = txn.f:src()
@@ -30,5 +33,7 @@ function get_certificate(txn)
 end
 
 core.register_fetches("get_certificate", get_certificate)
+
+	[...]
 
 

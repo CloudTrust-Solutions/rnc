@@ -1,3 +1,6 @@
+
+	[...]
+
 ///
 /// <summary> 
 /// Start the client 
@@ -120,3 +123,6 @@ private static void SendDataToServer() {
 }
 
 ///   https://www.red-gate.com/simple-talk/dotnet/net-framework/tlsssl-and-net-framework-4-0/
+
+	[...]
+
