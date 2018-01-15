@@ -143,18 +143,25 @@ echo "Installing Universally Unique ID library..."
 echo "Installing .NET Core library..."
 wget -O - https://dot.net/v1/dotnet-install.sh | bash
 
+echo "Installing NuGet packages..."
+dotnet add package Microsoft.Extensions.Configuration --version 2.0.0
+dotnet add package Microsoft.Extensions.Configuration.Json --version 2.0.0
+
 ########################################################
 # Create rnc.ini configuration file
 ########################################################
-rm rnc.ini
-echo "[RNC]" >> rnc.ini
-echo "TicketID=$rnc_ticket_id" >> rnc.ini
-echo "ServerAddress=$rnc_server_address" >> rnc.ini
-echo -n "NetworkPassphrase=" >> rnc.ini
-echo "" | openssl base64 -e <<< "$rnc_network_passphrase" >> rnc.ini
-echo -n "MemberID=" >> rnc.ini
-echo "" | uuidgen | tr /a-z/ /A-Z/ >> rnc.ini
-echo "MemberDescription=$HOSTNAME" >> rnc.ini
+rm appsettings.json
+echo "{" >> appsettings.json
+echo "  \"TicketID\" :  \"$rnc_ticket_id\"," >> appsettings.json
+echo "  \"ServerAddress\" :  \"$rnc_server_address:443\"," >> appsettings.json
+echo -n "  \"NetworkPassphrase\" :  \"" >> appsettings.json
+echo "" | openssl base64 -e <<< "$rnc_network_passphrase" | tr "\n" "\"" >> appsettings.json
+echo "," >> appsettings.json
+echo -n "  \"MemberID\" :  \"" >> appsettings.json
+echo "" | uuidgen | tr /a-z/ /A-Z/ | tr "\n" "\"," >> appsettings.json
+echo "," >> appsettings.json
+echo "  \"MemberDescription\" :  \"$HOSTNAME\"" >> appsettings.json
+echo "}" >> appsettings.json
 
 reset
 ########################################################
