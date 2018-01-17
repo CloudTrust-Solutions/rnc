@@ -148,15 +148,15 @@ dotnet add package Microsoft.Extensions.Configuration --version 2.0.0
 dotnet add package Microsoft.Extensions.Configuration.Json --version 2.0.0
 
 ########################################################
-# Create rnc.ini configuration file
+# Create appsettings.json configuration file
 ########################################################
 rm appsettings.json
 echo "{" >> appsettings.json
 echo "  \"TicketID\" :  \"$rnc_ticket_id\"," >> appsettings.json
-echo "  \"ServerAddress\" :  \"$rnc_server_address:443\"," >> appsettings.json
+echo "  \"ServerAddress\" :  \"$rnc_server_address\"," >> appsettings.json
 echo -n "  \"NetworkPassphrase\" :  \"" >> appsettings.json
-echo "" | openssl base64 -e <<< "$rnc_network_passphrase" | tr "\n" "\"" >> appsettings.json
-echo "," >> appsettings.json
+printf $rnc_network_passphrase | openssl base64 | awk 'BEGIN{ORS="";} {print}' >> appsettings.json
+echo "\"," >> appsettings.json
 echo -n "  \"MemberID\" :  \"" >> appsettings.json
 echo "" | uuidgen | tr /a-z/ /A-Z/ | tr "\n" "\"," >> appsettings.json
 echo "," >> appsettings.json
