@@ -16,7 +16,7 @@ private static void RunClient() {
 		if (!String.IsNullOrEmpty(_message)) {
 			//create the client instance. It will perform calls to the server's 
 			//endpoint (192.168.1.21:443) 
-			TcpClient client = new TcpClient("192.168.1.21", 443);
+			TcpClient client = new TcpClient("192.168.12.34", 443);
 			SendMessageToServer(client);
 		}
 	}
@@ -69,7 +69,7 @@ private static void ClientSideHandshake() {
 
 	X509CertificateCollection clientCertificates = GetClientCertificates("ssl_client");
 
-	string targetHost = "192.168.1.21";
+	string targetHost = "192.168.12.34";
 	SslProtocols sslProtocol = SslProtocols.Tls;
 	bool checkCertificateRevocation = true;
 
