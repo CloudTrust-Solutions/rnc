@@ -163,6 +163,8 @@ echo "," >> appsettings.json
 echo "  \"MemberDescription\" :  \"$HOSTNAME\"" >> appsettings.json
 echo "}" >> appsettings.json
 
+chmod u+x RNCLnxClient.out
+
 reset
 ########################################################
 # Completing
