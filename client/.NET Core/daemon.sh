@@ -1,17 +1,22 @@
 ########################################################
-# To run Remote Network Connection™ as a Linux daemon
+# To configure Remote Network Connection™ as a Linux daemon
 ########################################################
 
 ########################################################
 # Create SystemD rncsvc.service file
 ########################################################
-cat > dnsvc.service <<EOF
+cat > rncsvc.service <<EOF
 [Unit]
 Description=Remote Network Connection service
 After=network.target
+
 [Service]
 ExecStart=/usr/bin/dotnet $(pwd)/bin/RNCService.dll
-Restart=on-failure
+Restart=always
+#Restart=on-failure
+RestartSec=10 # Restart service after 10 seconds if dotnet service crashes
+SyslogIdentifier=remotenetworkconnection
+
 [Install]
 WantedBy=multi-user.target
 EOF
