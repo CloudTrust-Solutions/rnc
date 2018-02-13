@@ -7,7 +7,7 @@
 ########################################################
 cat > rncsvc.service <<EOF
 [Unit]
-Description=Remote Network Connection service
+Description=Remote Network Connection Service
 After=network.target
 
 [Service]
